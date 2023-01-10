@@ -1,9 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { fetchMe } from "./api/auth";
+import Register from "./Components/Register";
+import SignIn from "./Components/SignIn";
+import React, { useState, useEffect } from "react";
 import './App.css'
 
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [user, setUser] = useState({});
+
+
+useEffect(() => {
+  const getMe = async () => {
+    const data = await fetchMe(token);
+    setUser(data);
+    console.log("This is the user", user);
+  };
+  if (token) {
+    getMe();
+  }
+}, [token]);
+
 
   return (
     <div className="App">

@@ -43,3 +43,20 @@ export const previousUser = async (username, password) => {
         console.error(error)
     }
 }; 
+
+
+export const fetchMe = async (token) => {
+    try {
+        const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/me', {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+            },
+          })
+
+          const { data } = await response.json();
+          return data;
+    } catch (error) {
+        console.error(error)
+    }
+};
