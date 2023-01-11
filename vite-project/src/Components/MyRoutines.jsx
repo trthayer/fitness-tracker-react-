@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const getMyRoutines = async (token, creatorName) => {
+export const GetMyRoutines = async (token, creatorName) => {
     try {
       const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/users/${creatorName}/routines`, {
         headers: {
