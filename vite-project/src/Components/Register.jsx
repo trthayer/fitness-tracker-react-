@@ -1,4 +1,4 @@
-import React, { useState } from "/react";
+import React, { useState } from "react";
 import { registerUser  } from "../api/auth";
 
 const Register = ({ setToken }) => {
