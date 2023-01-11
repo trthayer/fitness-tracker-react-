@@ -13,31 +13,31 @@ import './App.css'
 
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(localStorage.getItem("token") );
   const [user, setUser] = useState({});
-  const [ activitiyId, setActivityId ] = useState(null);
 
 
 useEffect(() => {
+  // console.log("This is the token", token)
   const getMe = async () => {
     const data = await fetchMe(token);
     setUser(data);
-    console.log("This is the user", user);
   };
   if (token) {
     getMe();
   }
 }, [token]);
 
+// console.log("This is the user", user);
 
   return (
     <div className="App">
       <Navbar/>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/routines" element={<Routines />} />
+          <Route path="/signin" element={<SignIn setToken={setToken}/>} />
+          <Route path="/register" element={<Register setToken={setToken}/>} />
+          <Route path="/routines" element={<Routines setToken={setToken}/>} />
           <Route path="/myroutines" element={<GetMyRoutines />} />
           <Route path="/activities" element={<Activities />} />
        </Routes>

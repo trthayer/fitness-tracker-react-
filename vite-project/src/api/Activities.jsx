@@ -1,11 +1,13 @@
 
 
 export const createNewActivity = async (name, description, token) => {
-    try {
+  console.log("name", name)
+  console.log("description", description)
+  try {
         const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
             method: "POST",
             headers: {
-                // 'Content-Type': 'application/json; charset=UTF-8',
+                'Content-Type': 'application/json; charset=UTF-8',
                 'Authorization': `Bearer ${token}`,
               },
             body: JSON.stringify({
@@ -16,7 +18,7 @@ export const createNewActivity = async (name, description, token) => {
 
           const results = await response.json();
           
-          console.log("This is a new created activity", results)
+          // console.log("This is a new created activity", results)
           return results        
     } catch (error) {
         console.error(error)
@@ -60,27 +62,12 @@ export const UpdateActivity = async (id, name, description) =>{
     const data = await response.json();
     return data;
         
-         
-        
     } catch (error) {
         console.error(error);
         
     }
 
 }
-            
-         
-     
-         
-   
-        
-       
-    
-         
-
-    
-    
-    
 
 
 // PATCH /api/routine_activities/:routineActivityId

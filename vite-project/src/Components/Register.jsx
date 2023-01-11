@@ -11,9 +11,9 @@ const Register = ({ setToken }) => {
                 try {
                     e.preventDefault();
                     const data = await registerUser(username, password);
-                    if (data.data.token) {
-                        setToken(data.data.token);
-                        localStorage.setItem("token", data.data.token);
+                    if (data.token) {
+                        setToken(data.token);
+                        localStorage.setItem("token", data.token);
                     }
                 } catch (error) {
                     console.error(error)

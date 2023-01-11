@@ -22,6 +22,7 @@ export const registerUser = async (username, password) => {
 
 
 export const previousUser = async (username, password) => {
+  // console.log("Username informaiton", password)
     try {
         const response = await fetch ('http://fitnesstrac-kr.herokuapp.com/api/users/login', {
             method: "POST",
@@ -33,11 +34,11 @@ export const previousUser = async (username, password) => {
               password,
             })
           })
-
+          console.log("the response", response)
           const { 
-            data: { token },
+            token
           } = await response.json();
-
+          
           return token;
     } catch (error) {
         console.error(error)
@@ -46,6 +47,7 @@ export const previousUser = async (username, password) => {
 
 
 export const fetchMe = async (token) => {
+  // console.log("This is the token", token)
     try {
         const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/users/me', {
             headers: {
@@ -54,7 +56,8 @@ export const fetchMe = async (token) => {
             },
           })
 
-          const { data } = await response.json();
+          const data = await response.json();
+          // console.log("this is the fetchMe data", data)
           return data;
     } catch (error) {
         console.error(error)
