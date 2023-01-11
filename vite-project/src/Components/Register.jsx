@@ -20,7 +20,7 @@ const Register = ({ setToken }) => {
                 }
             }}
         >
-            <label htmlFor="username"></label>
+            <label htmlFor="username">New User</label>
             <input
                 value={username}
                 type="text"
@@ -30,7 +30,7 @@ const Register = ({ setToken }) => {
             <label htmlFor="password"></label>
             <input
                 value={password}
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
             ></input>

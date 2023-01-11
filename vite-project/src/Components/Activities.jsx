@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 
 
 
-const Activities = () => {
+export const Activities = () => {
     const [  activities, setActivities ] = useState([]);
 
    useEffect(() => {
@@ -30,4 +30,53 @@ const Activities = () => {
     )
 }
 
-export default Activities;
+export const createNewActivity = async (name, description, token) => {
+    try {
+        const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/activities', {
+            method: "POST",
+            headers: {
+                // 'Content-Type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${token}`,
+              },
+            body: JSON.stringify({
+              name: name,
+              description: description,
+            }),
+          });
+
+          const results = await response.json();
+          
+          console.log("This is a new created activity", results)
+          return results        
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+export const addActivityToRoutine = async (activityId, count, duration) => {
+    try {
+      const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${activityId}/activities`, {
+        method: "POST",
+        body: JSON.stringify({
+          activityId: activityId,
+          count: count, 
+          duration: duration,
+        })
+      });
+
+      const results = await response.json();
+
+      console.log("This activy will be added to a routine", results);
+      return results;
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
+
+
+//PATCH /api/activities/:activityId
+
+// PATCH /api/routine_activities/:routineActivityId
+
+// DELETE /api/routine_activities/:routineActivityId
