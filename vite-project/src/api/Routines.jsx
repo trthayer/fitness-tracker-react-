@@ -37,6 +37,7 @@ export const getRoutinesByActivity = async (activityId) => {
       console.error(error)
     }
   };
+// PATCH
 
 
   // DELETE /api/routines/:routineId

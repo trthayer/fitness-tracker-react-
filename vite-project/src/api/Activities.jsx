@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 
 export const createNewActivity = async (name, description, token) => {
@@ -48,28 +49,61 @@ export const addActivityToRoutine = async (activityId, count, duration) => {
 
 
 //PATCH /api/activities/:activityId
-export const UpdateActivity = async (id, name, description) =>{
-    
-    try {
-        const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/activities/${id}`, {
-              method: "PATCH",
-              body: JSON.stringify({
+export const UpdateActivity = async (activityId, name, description, token) => {
+    console.log(token);
 
-              name,
-              description,
-          })
+   
+    try {
+        const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/activities/${activityId}`,{
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+            
+               
+            name,
+            description,
+        }),
     });
     const data = await response.json();
+    console.log("these are my updated activites...", data);
     return data;
-        
+   
     } catch (error) {
-        console.error(error);
+        console.error(error)
         
     }
-
 }
 
 
+
+
+
 // PATCH /api/routine_activities/:routineActivityId
+const UpdateRoutineActivity = async (routineActivityId, count, duration) => {
+    
+    try {
+        const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/api/routine_activities/${routineId}`,{
+            method: "PATCH",
+            body: JSON.stringify({
+
+                routineActivityId,
+                count,
+                duration,
+        }),
+    });
+    const data = await response.json();
+    console.log("these are my updated activites...", data);
+    return data;
+
+    } catch (error) {
+        console.error(error)
+        
+    }
+}
+
+
 
 // DELETE /api/routine_activities/:routineActivityId
