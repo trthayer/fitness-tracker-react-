@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { UpdateActivity } from "../api/activities";
 import NewActivity from "./NewActivities";
 import UpdatedActivity from "./UpdatedActivity";
 
 
 export const Activities = () => {
     const [  activities, setActivities ] = useState([]);
-    const [ activityId, setActivityId ] = useState([]);
-    const [ name, setName ] = useState([])
-    const [ description, setDescription ] = ([]);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -23,9 +19,6 @@ export const Activities = () => {
     }
     getActivities();
    }, [])
-
-   //console.log(activities);
-  
 
 return (
         <div className="activities">

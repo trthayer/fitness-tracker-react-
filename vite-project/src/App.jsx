@@ -3,12 +3,14 @@ import Register from "./Components/Register";
 import SignIn from "./Components/SignIn";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
+import { Logout } from "./Components/LogOut";
 import { Routines } from "./Components/Routines";
 import { Activities } from "./Components/Activities";
 import { GetMyRoutines } from "./Components/MyRoutines";
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import Button from "./Components/Button";
 
 
 
@@ -33,6 +35,11 @@ useEffect(() => {
   return (
     <div className="App">
       <Navbar/>
+          {/* <button type="submit" onClick={Logout}>Log Out</button> */}
+          {/* <Button
+            action = {Logout}
+            content = {"Log Out"}
+          /> */}
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn setToken={setToken}/>} />

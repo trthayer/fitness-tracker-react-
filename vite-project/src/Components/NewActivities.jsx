@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { createNewActivity } from '../api/activities';
 import Button from './Button';
 
-const NewActivity = ({ activities, setActivities }) => {
+const NewActivity = ({ activities, setActivities, token }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-
+    
+    // if (localStorage.getItem(token) == true) {
     return (
         <div>
             <form>
@@ -36,6 +37,9 @@ const NewActivity = ({ activities, setActivities }) => {
 
         </div>
     )
+    // } else {
+    //     null;
+    // }
 }
 
 
