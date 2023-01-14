@@ -17,10 +17,11 @@ export const getRoutinesByActivity = async (activityId) => {
 
   export const createNewRoutine = async (name, goal, token) => {
     try {
+      // console.log("API console log", name, goal, token)
       const response = await fetch('http://fitnesstrac-kr.herokuapp.com/api/routines', {
         method: "POST",
         headers: {
-          // 'Content-Type': 'application/json; charset=UTF-8',
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -37,7 +38,42 @@ export const getRoutinesByActivity = async (activityId) => {
       console.error(error)
     }
   };
+
 // PATCH
+export const UpdateRoutine = async (routineId, name, goal, token) => {
+  try {
+    const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name,
+        goal,
+      })
+    });
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error)
+  }
+}
 
-
+export const getMyRoutines = async (username, token) => {
+  try {
+    const response = await fetch(`http://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`, { 
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+  // console.log("response", response)     
+  const data = await response.json();
+  return data;
+} catch (error) {
+  console.error(error)
+}
+}
   // DELETE /api/routines/:routineId

@@ -46,8 +46,6 @@ export const addActivityToRoutine = async (activityId, count, duration) => {
     }
   };
 
-
-
 //PATCH /api/activities/:activityId
 export const UpdateActivity = async (activityId, name, description, token) => {
     console.log(token);
@@ -61,8 +59,6 @@ export const UpdateActivity = async (activityId, name, description, token) => {
                 'Authorization': `Bearer ${token}`,
             },
             body: JSON.stringify({
-            
-               
             name,
             description,
         }),
@@ -76,10 +72,6 @@ export const UpdateActivity = async (activityId, name, description, token) => {
         
     }
 }
-
-
-
-
 
 // PATCH /api/routine_activities/:routineActivityId
 const UpdateRoutineActivity = async (routineActivityId, count, duration) => {

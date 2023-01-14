@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { createNewActivity } from '../api/activities';
-import Button from './Button';
+import { UpdateActivity } from '../../api/activities';
+import Button from '../Button';
 
-const NewActivity = ({ activities, setActivities, token }) => {
+
+const UpdatedActivity = ({ activityId, activities, setActivities }) => {
     const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    
-    // if (localStorage.getItem(token) == true) {
-    return (
+    const [description, setDescription] = useState("");     
+
+        return (
         <div>
             <form>
             <label htmlFor="name">Activity Name:</label>
@@ -27,20 +27,17 @@ const NewActivity = ({ activities, setActivities, token }) => {
             </form>
             <Button
                 action={async () => {
-                    const token = localStorage.getItem("token");
-                    const newActivity = await createNewActivity(name, description, token);
-                    console.log("This is a new created activity", newActivity)
-                    setActivities([newActivity, ...activities]);
+                    const token = localStorage.getItem("token")
+                    // console.log("this is the token...", token)
+                    const updatedActivities = await UpdateActivity(activityId, name, description, token);
+                    //console.log("This is an", updatedActivities)
+                    setActivities([updatedActivities, ...activities]);
                 }}
-                content={"Create New Activity"}
+                content={"Update Activity"}
             />
-
-        </div>
-    )
-    // } else {
-    //     null;
-    // }
+            </div>
+        )
 }
 
 
-    export default NewActivity
+export default UpdatedActivity;

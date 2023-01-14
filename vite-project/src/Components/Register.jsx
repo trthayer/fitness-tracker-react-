@@ -4,6 +4,7 @@ import { registerUser  } from "../api/auth";
 const Register = ({ setToken }) => {
     const [username, setUsername] = useState ("");
     const [password, setPassword] = useState ("");
+    
     return (
         <div>
         <form
@@ -11,6 +12,7 @@ const Register = ({ setToken }) => {
                 try {
                     e.preventDefault();
                     const data = await registerUser(username, password);
+                    localStorage.setItem("username", username);
                     if (data.token) {
                         setToken(data.token);
                         localStorage.setItem("token", data.token);

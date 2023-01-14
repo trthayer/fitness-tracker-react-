@@ -4,6 +4,7 @@ import { previousUser } from "../api/auth";
 const SignIn = ({ setToken }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    
         return (
             <div>
             <form
@@ -11,6 +12,7 @@ const SignIn = ({ setToken }) => {
                     try {
                         e.preventDefault();
                         console.log(password, username);
+                        localStorage.setItem("username", username);
                         const token = await previousUser(username, password);
                         setToken(token);
                         localStorage.setItem("token",token);
@@ -37,6 +39,6 @@ const SignIn = ({ setToken }) => {
             </form>
             </div>
         )
-}
+};
 
 export default SignIn;
