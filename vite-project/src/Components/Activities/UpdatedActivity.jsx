@@ -10,14 +10,14 @@ const UpdatedActivity = ({ activityId, activities, setActivities }) => {
         return (
         <div>
             <form>
-            <label htmlFor="name">Activity Name:</label>
+            <label htmlFor="name">Update Activity Name: </label>
                 <input
                 value={name}
                 type="text"
                 placeholder="Activity Name"
                 onChange={(e) => setName(e.target.value)}
                 ></input>
-            <label htmlFor="description">Description:</label>
+            <label htmlFor="description">Update Description: </label>
                 <input
                 value={description}
                 type="text"

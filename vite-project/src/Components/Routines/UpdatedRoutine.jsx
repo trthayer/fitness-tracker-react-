@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UpdateRoutine } from "../../api/routines";
+import { UpdateRoutine } from "../../api/Routines";
 import Button from "../Button";
 
 
@@ -10,14 +10,14 @@ const UpdatedRoutine = ({ routineId, routines, setRoutines}) => {
     return (
         <div>
             <form>
-            <label htmlFor="name">Routine Name</label>
+            <label htmlFor="name">Update Routine Name: </label>
                 <input
                 value={name}
                 type="text"
                 placeholder="Routine Name"
                 onChange={(e) => setName(e.target.value)}
                 ></input>
-            <label htmlFor="goal">Goal</label>
+            <label htmlFor="goal">Update Goal: </label>
                 <input
                 value={goal}
                 type="text"

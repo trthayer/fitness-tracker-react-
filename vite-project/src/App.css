@@ -1,7 +1,61 @@
-body {
+* {
     margin: 0;
 }
 
+.navbar-container {
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: antiquewhite;
+}
+
+.navbar-title {
+    padding-left: 15px;
+    font-size: 2.5rem;
+}
+
+ul{
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    padding-right: 20px;
+    font-size: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 15px;
+}
+
+
+.routines-title {
+    padding: 20px;
+    
+}
+
+.map-routines {
+    border: 6px solid black;
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+.activities-title {
+    padding: 20px;
+}
+
+.map-activities {
+    border: 6px solid black;
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 10px;
+}
 
 
 

@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from "react";
+import DeletedRoutine from "./DeletedRoutine";
 import UpdatedRoutine from "./UpdatedRoutine";
+
+
 
 
 export const Routines = () => {
@@ -21,11 +24,11 @@ export const Routines = () => {
    
    return (
         <div className="routines">
-            <h1 className="routines-title">Routines</h1>
+            <h1 className="routines-title"><u>Routines</u></h1>
             
         {routines.map((routine) => {
             return (
-            <div key={routine?.id}>
+            <div className="map-routines" key={routine?.id}>
                 <h2>{routine?.name}</h2>
                 <h4>By: {routine.creatorName}</h4>
                 <h3>Goal: {routine?.goal}</h3>
@@ -42,6 +45,9 @@ export const Routines = () => {
                 })}
                 {token ?
                 <UpdatedRoutine setRoutines={setRoutines} routines={routines} routineId={routine?.id}/>
+                : null }
+                {token ? 
+                <DeletedRoutine setRoutines={setRoutines} routines={routines} routineId={routine?.id}/>
                 : null }
                 </div>
             </div>

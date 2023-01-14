@@ -38,7 +38,7 @@ const AddActivityToRoutine = ({ activityToRoutines, setActivityToRoutines, token
                     const newActivityToRoutine = await addActivityToRoutine(activityId, count, duration, token);
                     setActivityToRoutines([newActivityToRoutine, ...activityToRoutines]);
                 }}
-                content={"Add Activity to Routine"}
+                content={"Add an Activity"}
             />
 
         </div>

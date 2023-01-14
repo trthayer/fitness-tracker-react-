@@ -23,13 +23,13 @@ export const Activities = () => {
 
 return (
         <div className="activities">
-            <h1 className="activities-title">Activities</h1>
+            <h1 className="activities-title"><u>Activities</u></h1>
             {token ?
             <NewActivity setActivities={setActivities} activities={activities}/>
             : null}
             
             {activities?.map(activity =>
-                    <div key={activity?.id}>
+                    <div className="map-activities" key={activity?.id}>
                         <h2>Activity: {activity?.name}</h2>
                         <h3>Description: {activity?.description}</h3>
                         {token ?

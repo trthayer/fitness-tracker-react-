@@ -7,7 +7,7 @@ const SignIn = ({ setToken }) => {
     
         return (
             <div>
-            <form
+            <form className="login-form"
                 onSubmit={async (e) => {
                     try {
                         e.preventDefault();
@@ -22,14 +22,14 @@ const SignIn = ({ setToken }) => {
                 }}
             >
                 <label htmlFor="username">Previous User:</label>
-                <input
+                <input className="login-input"
                     value={username}
                     type="text"
                     placeholder="Previous User"
                     onChange={(e) => setUsername(e.target.value)}
                 ></input>
                 <label htmlFor="password">Password:</label>
-                <input
+                <input className="login-input"
                     value={password}
                     type="password"
                     placeholder="Password"

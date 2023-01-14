@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <header className="navbar-container">
-                <div className="navabar-title">Fitness Tracker</div>
+                <h1 className="navbar-title">Fitness Tracker</h1>
                 <nav className="nav-links">
                     <ul>
                         <li className="nav-item">
@@ -26,16 +26,16 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="/activities">Activites</Link>
                         </li>
-                        {!token ?
+                        
                         <li className="nav-item">
-                            <Link to="/signin">Sign In</Link>
+                            <Link to="/signin">Login</Link>
                         </li>
-                        : null}
-                        {!token ?
+                        
+                        
                         <li className="nav-item">
-                            <Link to="/register">Register</Link>
+                            <Link to="/register">SignUp</Link>
                         </li>
-                        : null}
+                        
                         {token ?
                         <li>
                             <button type="submit" onClick={(e) => {

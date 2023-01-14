@@ -87,7 +87,7 @@ const UpdateRoutineActivity = async (routineActivityId, count, duration) => {
         }),
     });
     const data = await response.json();
-    console.log("these are my updated activites...", data);
+    console.log("these are my updated routine activites...", data);
     return data;
 
     } catch (error) {
@@ -99,3 +99,22 @@ const UpdateRoutineActivity = async (routineActivityId, count, duration) => {
 
 
 // DELETE /api/routine_activities/:routineActivityId
+export const DeleteRoutineActivity = async (routineActivityId, count, duration) => {
+  try {
+    const response = await fetch (`http://fitnesstrac-kr.herokuapp.com/api/api/routine_activities/${routineId}`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+        
+        routineActivityId,
+        count,
+        duration,
+      })
+    })
+    const data = response.json();
+    console.log("These are my deleted routine activities...", data)
+    return data;
+  } catch (error) {
+    console.error(error)
+    
+  }
+}

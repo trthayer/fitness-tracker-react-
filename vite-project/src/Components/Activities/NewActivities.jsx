@@ -8,6 +8,7 @@ const NewActivity = ({ activities, setActivities, token }) => {
     
     return (
         <div>
+            <h2>Create New Activity</h2>
             <form>
             <label htmlFor="name">Activity Name:</label>
                 <input
