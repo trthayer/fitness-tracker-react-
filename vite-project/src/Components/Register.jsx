@@ -29,7 +29,7 @@ const Register = ({ setToken }) => {
                 placeholder="New User"
                 onChange={(e) => setUsername(e.target.value)}
             ></input>
-            <label htmlFor="password"></label>
+            <label htmlFor="password">Password</label>
             <input
                 value={password}
                 type="password"

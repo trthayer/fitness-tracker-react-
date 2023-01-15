@@ -15,8 +15,6 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token") );
   const [user, setUser] = useState({});
 
-
-
 useEffect(() => {
   // console.log("This is the token", token)
   const getMe = async () => {
@@ -35,8 +33,8 @@ useEffect(() => {
       <Navbar/>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<SignIn setToken={setToken}/>} />
-          <Route path="/register" element={<Register setToken={setToken}/>} />
+          <Route path="/signin" element={<SignIn setToken={setToken} />} />
+          <Route path="/register" element={<Register setToken={setToken} />} />
           <Route path="/routines" element={<Routines setToken={setToken}/>} />
           <Route path="/myroutines" element={<MyRoutines setToken={setToken} token={token} user={user}/>} />
           <Route path="/activities" element={<Activities setToken={setToken}/>} />

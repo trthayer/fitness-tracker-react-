@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createNewRoutine } from '../../api/Routines';
+import { createNewRoutine } from '../../api/routines';
 import Button from '../Button';
 
 const NewRoutine = ({ routines, setRoutines }) => {

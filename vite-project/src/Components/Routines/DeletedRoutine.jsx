@@ -16,7 +16,7 @@ const DeletedRoutine = ({routineId, routines, setRoutines}) => {
                     const token = localStorage.getItem("token")
                     const deletedRoutines = await DeleteRoutine(routineId, name, goal, token);
                     console.log("Deleted Routine log", deletedRoutines)
-                    setRoutines({deletedRoutines, ...routines});
+                    setRoutines([...routines.filter(routines => routineId !== deletedRoutines.id),]);
                 }}
                 content={"Delete Routine"}
             />

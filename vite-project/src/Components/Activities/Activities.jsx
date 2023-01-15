@@ -6,10 +6,6 @@ import UpdatedActivity from "./UpdatedActivity";
 export const Activities = () => {
     const [  activities, setActivities ] = useState([]);
     const token = localStorage.getItem('token');
-
-    const handleClick = (e) => {
-        e.preventDefault();
-    }
     
     useEffect(() => {
     const getActivities = async ()=> {
@@ -28,7 +24,8 @@ return (
             <NewActivity setActivities={setActivities} activities={activities}/>
             : null}
             
-            {activities?.map(activity =>
+            {activities?.map((activity) => {
+                return (
                     <div className="map-activities" key={activity?.id}>
                         <h2>Activity: {activity?.name}</h2>
                         <h3>Description: {activity?.description}</h3>
@@ -36,7 +33,8 @@ return (
                         <UpdatedActivity setActivities={setActivities} activities={activities} activityId={activity?.id}/>
                         : null}
                     </div>
-                    )}            
+                );
+            })}            
         </div>
     )
   }

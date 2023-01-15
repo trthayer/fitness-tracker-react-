@@ -76,6 +76,7 @@ export const getMyRoutines = async (username, token) => {
   console.error(error)
 }
 }
+
   // DELETE /api/routines/:routineId
   export const DeleteRoutine = async (routineId, name, goal, token) => {
     try {

@@ -1,6 +1,3 @@
-import { useState } from "react";
-
-
 export const createNewActivity = async (name, description, token) => {
   console.log("name", name)
   console.log("description", description)
@@ -101,7 +98,7 @@ const UpdateRoutineActivity = async (routineActivityId, count, duration) => {
 // DELETE /api/routine_activities/:routineActivityId
 export const DeleteRoutineActivity = async (routineActivityId, count, duration) => {
   try {
-    const response = await fetch (`http://fitnesstrac-kr.herokuapp.com/api/api/routine_activities/${routineId}`, {
+    const response = await fetch (`http://fitnesstrac-kr.herokuapp.com/api/api/routine_activities/${routineActivityId}`, {
       method: 'DELETE',
       body: JSON.stringify({
         

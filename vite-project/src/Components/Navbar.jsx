@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-
 const Navbar = () => {
     const token = localStorage.getItem('token');
 
@@ -26,16 +25,16 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="/activities">Activites</Link>
                         </li>
-                        
+                        {!token ?
                         <li className="nav-item">
                             <Link to="/signin">Login</Link>
                         </li>
-                        
-                        
+                        : null}
+                        {!token ?
                         <li className="nav-item">
                             <Link to="/register">SignUp</Link>
                         </li>
-                        
+                        : null}
                         {token ?
                         <li>
                             <button type="submit" onClick={(e) => {

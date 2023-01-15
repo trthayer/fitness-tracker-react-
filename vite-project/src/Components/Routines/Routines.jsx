@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import DeletedRoutine from "./DeletedRoutine";
 import UpdatedRoutine from "./UpdatedRoutine";
-
+import NewRoutine from "./NewRoutines";
 
 
 
@@ -25,6 +25,9 @@ export const Routines = () => {
    return (
         <div className="routines">
             <h1 className="routines-title"><u>Routines</u></h1>
+            {token ?
+                <NewRoutine setRoutines={setRoutines} routines={routines}/>
+            : null}
             
         {routines.map((routine) => {
             return (

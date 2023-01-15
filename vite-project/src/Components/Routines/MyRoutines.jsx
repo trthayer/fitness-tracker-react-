@@ -3,6 +3,8 @@ import { getMyRoutines } from "../../api/routines";
 import DeletedActivityFromRoutine from "./DeleteRoutineActivity";
 import AddActivityToRoutine from "../Activities/AddActivityToRoutine";
 import NewRoutine from "./NewRoutines";
+import DeletedRoutine from "./DeletedRoutine";
+import UpdatedRoutine from "./UpdatedRoutine";
 
 
 export const MyRoutines = ({token, user}) => {
@@ -10,6 +12,7 @@ export const MyRoutines = ({token, user}) => {
     const [ routines, setRoutines ] = useState([]);
     const [ activityToRoutines, setActivityToRoutines ] = useState({});
     const username = user.username
+    // console.log("myRoutines username", username)
 
     useEffect (() => {
       const getRoutines = async () => {
@@ -22,24 +25,21 @@ export const MyRoutines = ({token, user}) => {
     return (
       <div className="myroutines">
         <h1 className="myroutines-title">My Routines</h1>
-        {token ?
-            <NewRoutine setRoutines={setRoutines} routines={routines}/>
-        : null}
-        {token ? 
-            <AddActivityToRoutine activityToRoutines={activityToRoutines} setActivityToRoutines={setActivityToRoutines}/>
-        : null }
-        {token ?
-            <DeletedActivityFromRoutine activityToRoutines={activityToRoutines} setActivityToRoutines={setActivityToRoutines}/>
-        : null }
-
-       {myRoutines.map(myRoutines => 
-          <div key={myRoutines?.id}>
-            <h2>Routine: {myRoutines?.name}</h2>
-            <h4>By: {myRoutines.creatorName}</h4>
-            <h3>Goal: {myRoutines?.goal}</h3>
-            
-          </div>
-        )}
+        <NewRoutine setRoutines={setRoutines} routines={routines}/>
+        
+        {myRoutines.map((myRoutine) => {
+          return (
+            <div key={myRoutine?.id}>
+              <h2>Routine: {myRoutine?.name}</h2>
+              <h4>By: {myRoutine.creatorName}</h4>
+              <h3>Goal: {myRoutine?.goal}</h3>
+                  <UpdatedRoutine setRoutines={setRoutines} routines={routines} routineId={myRoutine?.id}/>
+                  <AddActivityToRoutine activityToRoutines={activityToRoutines} setActivityToRoutines={setActivityToRoutines}/>
+                  <DeletedActivityFromRoutine activityToRoutines={activityToRoutines} setActivityToRoutines={setActivityToRoutines}/>
+                  <DeletedRoutine setRoutines={setRoutines} routines={routines} routineId={routines?.id}/>
+            </div>
+          );
+        })}
       </div>
     )
 }

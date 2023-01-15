@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { previousUser } from "../api/auth";
 
-const SignIn = ({ setToken }) => {
+const SignIn = ({ setToken, setIsLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
